@@ -10,6 +10,7 @@ flask-sqlalchemy = "*"
 python-decouple = "*"
 
 [dev-packages]
+psycopg2-binary = "*"
 
 [scripts]
 server          = "python app.py"

@@ -1,8 +1,8 @@
-from flask import jsonify, request
+from flask import jsonify
+from services.user_service import UserService
 
 
 def list_all():
-    response = {
-       "detail": "Looks like there are no registered users!"
-    }
+    response = UserService().get_all()
+
     return jsonify(response)
