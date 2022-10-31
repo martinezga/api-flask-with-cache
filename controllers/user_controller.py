@@ -1,17 +1,47 @@
-from flask import jsonify
-from services.user_service import UserService
+from flask import request, make_response
+
+from models.user_model import UserModel
+from serializers.user_serializers import (
+    UserSerializer,
+    UserListSerializer,
+)
 
 
 def list_all():
-    response = UserService().get_all()
+    users = UserModel.query.all()
+    serializer = UserListSerializer(users)
 
-    return jsonify(response)
+    response = make_response(serializer.data, 200)
+    response.headers['X-custom-header'] = 'custom header'
+
+    return response
 
 
 def create():
-    response = {
+    message = {
         'detail': '',
         'status_code': 400,
     }
+    # Verify data was sent
+    if not request.data:
+        message['detail'] = 'No data sent'
 
-    return jsonify(response)
+    # When detail is empty means there are not previous errors
+    if not message['detail']:
+        body = request.json
+        data = {
+            'name': body.get('name'),
+            'lastname': body.get('lastname'),
+            'email': body.get('email'),
+        }
+        serializer = UserSerializer(data=data)
+        serializer.create()
+        if serializer.has_errors:
+            message['detail'] = serializer.errors
+        else:
+            message['detail'] = 'Created'
+            message['status_code'] = 200
+
+    response = make_response(message, message.get('status_code'))
+
+    return response

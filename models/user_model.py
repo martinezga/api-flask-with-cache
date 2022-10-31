@@ -18,3 +18,8 @@ class UserModel(Base):
         String(64),
         unique=True
     )
+
+    def __init__(self, name, lastname, email):
+        self.name = name
+        self.lastname = lastname
+        self.email = email
