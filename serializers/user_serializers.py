@@ -1,4 +1,4 @@
-from configurations.database import db_session
+from configurations.database import db
 from models.user_model import UserModel
 
 
@@ -26,8 +26,8 @@ class UserSerializer:
     def create(self):
         if not self.has_errors:
             user = UserModel(self.name, self.lastname, self.email)
-            db_session.add(user)
-            db_session.commit()
+            db.session.add(user)
+            db.session.commit()
 
 
 class UserListSerializer:

@@ -9,4 +9,5 @@ class ApiConfig(object):
     SQLALCHEMY_DATABASE_URI = config('SQLALCHEMY_DATABASE_URI', default='')
     # Turn off the Flask-SQLAlchemy event system and warning
     SQLALCHEMY_TRACK_MODIFICATIONS = config('SQLALCHEMY_TRACK_MODIFICATIONS', default=False, cast=bool)
+    ROWS_PER_PAGE = 10
     # REDIS
