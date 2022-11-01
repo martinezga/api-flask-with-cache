@@ -1,4 +1,5 @@
 from flask import request, make_response
+from werkzeug.exceptions import NotFound
 
 from configurations.settings import ApiConfig
 from models.user_model import UserModel
@@ -13,22 +14,35 @@ def list_all():
         'detail': {},
         'status_code': 400,
     }
+    query_params_received = request.args
+    query_params = query_params_received.to_dict()
+    # Remove ending slash and parse values to integer
+    for key, value in query_params.items():
+        if value.endswith('/'):
+            query_params[key] = value[:-1]
+        if value.isdecimal():
+            query_params[key] = int(value)
+
     # optionals query param
-    page = request.args.get('page', 1, type=int)
-    per_page = request.args.get('per_page', ApiConfig.ROWS_PER_PAGE, type=int)
+    page = query_params.get('page', 1)
+    per_page = query_params.get('per_page', ApiConfig.ROWS_PER_PAGE)
 
-    query_pag = UserModel.query.paginate(
-        page=page,
-        per_page=per_page,
-        max_per_page=100
-    )
-    serializer = UserListSerializer(query_pag.items)
+    try:
+        query_pag = UserModel.query.paginate(
+            page=page,
+            per_page=per_page,
+            max_per_page=100
+        )
+        serializer = UserListSerializer(query_pag.items)
 
-    message['data'] = serializer.data
-    message['status_code'] = 200
-    message['detail']['has_more'] = query_pag.has_next
-    message['detail']['next_page'] = query_pag.next_num
-    message['detail']['count'] = len(query_pag.items)
+        message['data'] = serializer.data
+        message['status_code'] = 200
+        message['detail']['has_more'] = query_pag.has_next
+        message['detail']['next_page'] = query_pag.next_num
+        message['detail']['count'] = len(query_pag.items)
+    except NotFound:
+        message['detail']['error'] = 'Not Found'
+        message['status_code'] = 404
 
     response = make_response(message, message['status_code'])
     response.headers['X-custom-header'] = 'custom header'
