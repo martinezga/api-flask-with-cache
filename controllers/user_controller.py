@@ -1,5 +1,6 @@
 from flask import request, make_response
 
+from configurations.settings import ApiConfig
 from models.user_model import UserModel
 from serializers.user_serializers import (
     UserSerializer,
@@ -8,10 +9,28 @@ from serializers.user_serializers import (
 
 
 def list_all():
-    users = UserModel.query.all()
-    serializer = UserListSerializer(users)
+    message = {
+        'detail': {},
+        'status_code': 400,
+    }
+    # optionals query param
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('per_page', ApiConfig.ROWS_PER_PAGE, type=int)
 
-    response = make_response(serializer.data, 200)
+    query_pag = UserModel.query.paginate(
+        page=page,
+        per_page=per_page,
+        max_per_page=100
+    )
+    serializer = UserListSerializer(query_pag.items)
+
+    message['data'] = serializer.data
+    message['status_code'] = 200
+    message['detail']['has_more'] = query_pag.has_next
+    message['detail']['next_page'] = query_pag.next_num
+    message['detail']['count'] = len(query_pag.items)
+
+    response = make_response(message, message['status_code'])
     response.headers['X-custom-header'] = 'custom header'
 
     return response
