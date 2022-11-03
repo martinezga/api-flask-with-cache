@@ -1,9 +1,10 @@
 from api.configurations.database import db
+from api.models.audit import AuditModel
 
 
-class UserModel(db.Model):
+class UserModel(AuditModel):
     __tablename__ = 'users'
-    id = db.db.Column(
+    id = db.Column(
         db.Integer,
         primary_key=True,
     )

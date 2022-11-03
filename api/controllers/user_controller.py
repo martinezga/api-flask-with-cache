@@ -2,6 +2,7 @@ from flask import request, make_response
 from werkzeug.exceptions import NotFound
 
 from api.configurations.settings import ApiConfig
+from api.helpers.common import clean_query_params
 from api.models.user_model import UserModel
 from api.serializers.user_serializers import (
     UserSerializer,
@@ -15,17 +16,11 @@ def list_all():
         'status_code': 400,
     }
     query_params_received = request.args
-    query_params = query_params_received.to_dict()
-    # Remove ending slash and parse values to integer
-    for key, value in query_params.items():
-        if value.endswith('/'):
-            query_params[key] = value = value[:-1]
-        if value.isdecimal():
-            query_params[key] = int(value)
+    query_params = clean_query_params(query_params_received)
 
-    # optionals query param
-    page = query_params.get('page', 1)
-    per_page = query_params.get('per_page', ApiConfig.ROWS_PER_PAGE)
+    # optionals query param for pagination
+    page = int(query_params.get('page', 1))
+    per_page = int(query_params.get('per_page', ApiConfig.ROWS_PER_PAGE))
 
     try:
         query_pag = UserModel.query.paginate(
@@ -33,6 +28,7 @@ def list_all():
             per_page=per_page,
             max_per_page=100
         )
+        # Improvement: Implement users role to allow admins see the audit fields
         serializer = UserListSerializer(query_pag.items)
 
         message['data'] = serializer.data
