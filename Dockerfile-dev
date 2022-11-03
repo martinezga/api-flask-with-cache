@@ -13,7 +13,7 @@ RUN pip install pipenv \
 
 WORKDIR /opt/api-deploy
 
-ENV FLASK_APP=app.py
+ENV FLASK_APP=api/app.py
 ENV FLASK_RUN_PORT=8000
 
 COPY . .

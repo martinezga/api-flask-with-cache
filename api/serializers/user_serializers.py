@@ -1,5 +1,5 @@
-from configurations.database import db
-from models.user_model import UserModel
+from api.configurations.database import db
+from api.models.user_model import UserModel
 
 
 class UserSerializer:

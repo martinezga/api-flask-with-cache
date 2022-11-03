@@ -18,4 +18,4 @@ COPY . .
 
 RUN pipenv install --system --skip-lock
 
-CMD gunicorn --workers 4 --bind 0.0.0.0:$PORT wsgi:app --log-level info
+CMD gunicorn --workers 4 --bind 0.0.0.0:$PORT api.configurations.wsgi:app --log-level info

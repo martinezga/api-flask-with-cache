@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from controllers import user_controller
+from api.controllers import user_controller
 
 user_bp = Blueprint('user_bp', __name__, url_prefix="/auth/users")
 

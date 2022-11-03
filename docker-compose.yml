@@ -15,9 +15,9 @@ services:
     ports:
       - "8000:8000"
     env_file: .env
-    working_dir: /opt/api-deploy
+    working_dir: /opt/api-deploy/api
     volumes:
-      - ./:/opt/api-deploy
+      - ./:/opt/api-deploy/api
     depends_on:
       - db
 

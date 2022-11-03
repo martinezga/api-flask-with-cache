@@ -1,9 +1,9 @@
 from flask import request, make_response
 from werkzeug.exceptions import NotFound
 
-from configurations.settings import ApiConfig
-from models.user_model import UserModel
-from serializers.user_serializers import (
+from api.configurations.settings import ApiConfig
+from api.models.user_model import UserModel
+from api.serializers.user_serializers import (
     UserSerializer,
     UserListSerializer,
 )
@@ -19,7 +19,7 @@ def list_all():
     # Remove ending slash and parse values to integer
     for key, value in query_params.items():
         if value.endswith('/'):
-            query_params[key] = value[:-1]
+            query_params[key] = value = value[:-1]
         if value.isdecimal():
             query_params[key] = int(value)
 

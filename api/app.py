@@ -1,8 +1,8 @@
 from flask import Flask
 
-from configurations import settings
-from configurations.database import db, custom_init_db
-from routes.user_bp import user_bp
+from api.configurations import settings
+from api.configurations.database import db, custom_init_db
+from api.routes.user_bp import user_bp
 
 
 def create_app():

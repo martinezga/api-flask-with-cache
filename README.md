@@ -67,7 +67,7 @@ In server needs to configure the follow environment variables (minimal ones):
 - SQLALCHEMY_DATABASE_URI
 - ENV
 
-Complete environment variables list are as example on [_.env](_.env) file, they are used on [settings](configurations/settings.py) app.
+Complete environment variables list are as example on [_.env](_.env) file, they are used on [settings](api/configurations/settings.py) app.
 
 **Keep an eye on PORT value** It is required to deploy the app, Heroku and Render assign it automatically.
 
