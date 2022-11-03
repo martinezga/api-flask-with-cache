@@ -14,6 +14,7 @@ https://api-users.onrender.com
 * Redis
 * Docker
 * Render - Cloud Application Hosting
+* Faker
 
 ### Description
 
@@ -22,6 +23,14 @@ https://api-users.onrender.com
 * Supports pagination
 * Supports Filtration
 * Cache-Control (client and server-side)
+
+### Improvements
+
+- DB migration
+- Complete CRUD operation: Update, retrieve and delete users
+- Searching and ordering support
+- Authentication and authorization
+- Testing
 
 ### API Usage
 
@@ -46,6 +55,10 @@ In case you don't have pipenv, execute: `pip install pipenv` first.
 
         $ pipenv install --dev
 
+- Run the development server executing:
+
+        $ pipenv run server
+
 #### Using docker-compose
 
 - Execute:
@@ -55,6 +68,8 @@ In case you don't have pipenv, execute: `pip install pipenv` first.
 - To stop it execute:
 
         $ docker-compose stop
+- 
+**To test successfully set up visit: http://localhost:8000**
 
 ### Production environment
 

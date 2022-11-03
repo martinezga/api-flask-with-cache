@@ -1,7 +1,8 @@
 from flask import Flask
 
 from api.configurations import settings
-from api.configurations.database import db, custom_init_db
+from api.configurations.data_population import populate_data
+from api.configurations.database import db
 from api.routes.user_bp import user_bp
 
 
@@ -14,8 +15,8 @@ def create_app():
     with app.app_context():
         import api.models
         db.create_all()
-    # Custom logic
-    custom_init_db()
+        # Custom logic to populate data
+        populate_data(db)
     # Improvement: Implement DB migration
 
     # register blueprints
