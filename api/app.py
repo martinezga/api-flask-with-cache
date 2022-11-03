@@ -12,7 +12,7 @@ def create_app():
     db.init_app(app)
     # create table schema
     with app.app_context():
-        import models
+        import api.models
         db.create_all()
     # Custom logic
     custom_init_db()
