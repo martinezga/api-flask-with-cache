@@ -1,3 +1,5 @@
+from typing import Dict
+
 from api.configurations.database import db
 from api.models.audit import AuditModel
 
@@ -23,3 +25,14 @@ class UserModel(AuditModel):
         self.name = name
         self.lastname = lastname
         self.email = email
+
+    @staticmethod
+    def filtered_users(filter_fields: Dict = None):
+        # By default, return untouched query
+        base_query = UserModel.query
+        if filter_fields:
+            for key, value in filter_fields.items():
+                attr = getattr(UserModel, key)
+                base_query = base_query.filter(attr == value)
+
+        return base_query

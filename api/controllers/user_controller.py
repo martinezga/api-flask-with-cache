@@ -9,6 +9,11 @@ from api.serializers.user_serializers import (
     UserListSerializer,
 )
 
+FILTER_FIELDS_ALLOWED = [
+    'name',
+    'lastname',
+    'email',
+]
 
 def list_all():
     message = {
@@ -21,9 +26,15 @@ def list_all():
     # optionals query param for pagination
     page = int(query_params.get('page', 1))
     per_page = int(query_params.get('per_page', ApiConfig.ROWS_PER_PAGE))
-
+    # optionals query param for filtration
+    filter_fields = {}
+    for filter_key in FILTER_FIELDS_ALLOWED:
+        filter_value = query_params.get(filter_key)
+        if filter_value:
+            filter_fields[filter_key] = filter_value
+    # Improvement: Implement searching and ordering
     try:
-        query_pag = UserModel.query.paginate(
+        query_pag = UserModel.filtered_users(filter_fields).paginate(
             page=page,
             per_page=per_page,
             max_per_page=100
