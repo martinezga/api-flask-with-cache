@@ -1,9 +1,9 @@
 from flask import Flask
 
 from api.configurations import settings
-from api.configurations.data_population import populate_data
 from api.configurations.database import db
 from api.routes.user_bp import user_bp
+from api.routes.data_populate_bp import data_populate_bp
 
 
 def create_app():
@@ -15,12 +15,11 @@ def create_app():
     with app.app_context():
         import api.models
         db.create_all()
-        # Custom logic to populate data
-        populate_data(db)
-    # Improvement: Implement DB migration
+        # Improvement: Implement DB migration
 
     # register blueprints
     app.register_blueprint(user_bp)
+    app.register_blueprint(data_populate_bp)
 
     return app
 
