@@ -1,7 +1,7 @@
 from flask import Flask
 
 from api.configurations import settings
-from api.configurations.database import db
+from api.configurations.database import db, cache
 from api.routes.user_bp import user_bp
 from api.routes.data_populate_bp import data_populate_bp
 
@@ -16,7 +16,8 @@ def create_app():
         import api.models
         db.create_all()
         # Improvement: Implement DB migration
-
+    # initialize Cache
+    cache.init_app(app)
     # register blueprints
     app.register_blueprint(user_bp)
     app.register_blueprint(data_populate_bp)

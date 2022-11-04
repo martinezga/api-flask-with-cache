@@ -1,6 +1,7 @@
 from flask import request, make_response
 from werkzeug.exceptions import NotFound
 
+from api.configurations.database import cache
 from api.configurations.settings import ApiConfig
 from api.helpers.common import clean_query_params
 from api.models.user_model import UserModel
@@ -15,6 +16,8 @@ FILTER_FIELDS_ALLOWED = [
     'email',
 ]
 
+
+@cache.cached(query_string=True)
 def list_all():
     message = {
         'detail': {},

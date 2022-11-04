@@ -9,6 +9,8 @@ redis = "*"
 flask-sqlalchemy = "*"
 python-decouple = "*"
 faker = "*"
+aiohttp = "*"
+flask-caching = "*"
 
 [dev-packages]
 psycopg2-binary = "*"
