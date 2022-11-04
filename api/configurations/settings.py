@@ -12,3 +12,4 @@ class ApiConfig(object):
     ROWS_PER_PAGE = config('ROWS_PER_PAGE', default=10, cast=int)
     CACHE_REDIS_URL = config('CACHE_REDIS_URL', default='')
     CACHE_DEFAULT_TIMEOUT = config('CACHE_DEFAULT_TIMEOUT', default=500, cast=int)
+    CACHE_TYPE = config('CACHE_TYPE', default='RedisCache')

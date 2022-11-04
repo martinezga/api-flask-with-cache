@@ -28,6 +28,7 @@ def list_all():
 
     # optionals query param for pagination
     page = int(query_params.get('page', 1))
+    if page == 0: page = 1
     per_page = int(query_params.get('per_page', ApiConfig.ROWS_PER_PAGE))
     # optionals query param for filtration
     filter_fields = {}
@@ -49,7 +50,9 @@ def list_all():
         message['status_code'] = 200
         message['detail']['has_more'] = query_pag.has_next
         message['detail']['next_page'] = query_pag.next_num
-        message['detail']['count'] = len(query_pag.items)
+        message['detail']['last_page'] = query_pag.pages
+        message['detail']['count_items'] = len(query_pag.items)
+        message['detail']['total_items'] = query_pag.total
     except NotFound:
         message['detail']['error'] = 'Not Found'
         message['status_code'] = 404

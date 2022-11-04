@@ -33,6 +33,7 @@ class UserModel(AuditModel):
         if filter_fields:
             for key, value in filter_fields.items():
                 attr = getattr(UserModel, key)
+                # Improvement: non-case sensitive filter
                 base_query = base_query.filter(attr == value)
 
         return base_query
