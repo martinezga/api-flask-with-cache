@@ -1,12 +1,16 @@
-## Purpose
+## 🎯 Purpose
 
 Develop an API endpoint to get a list of users.
 
-### Available on
+---
+
+### ❤️ Available on
 
 https://api-users.onrender.com
 
-### Technologies used
+---
+
+### 🔧 Technologies used
 
 * Flask
 * PostgreSQL
@@ -15,8 +19,9 @@ https://api-users.onrender.com
 * Docker
 * Render - Cloud Application Hosting
 * Faker
+* aiohttp client
 
-### Description
+### 📖 Description
 
 * MVC Architecture
 * Database has more than 1MM records
@@ -24,7 +29,7 @@ https://api-users.onrender.com
 * Supports Filtration
 * Cache-Control (client and server-side)
 
-### Improvements
+### 🔎 Improvements
 
 - DB migration
 - Complete CRUD operation: Update, retrieve and delete users
@@ -33,7 +38,7 @@ https://api-users.onrender.com
 - Testing
 - Non-case sensitive filter
 
-### API Usage
+### 🏁 API Usage
 
 Added a [Postman collection](api-users.postman_collection.json) to easily use API endpoints and query parameters combinations.
 Also contains examples of expected responses.
@@ -97,7 +102,15 @@ Example:
 
 Response with real created items and total_registered in Database.
 
-### Local environment set up
+### 🤓 Extra Functionality
+
+To create massive asynchronous HTTP requests to create dummy users in DB I create the script [async-request.py](async-request.py) which uses aiohttp client.
+
+In a terminal execute:
+
+        $ pipenv run python async-request.py
+
+### ✨ Local environment set up
 
 There are two set up, using pipenv or docker-compose. Next steps are common between them.
 
@@ -134,7 +147,7 @@ In case you don't have pipenv, execute: `pip install pipenv` first.
 - 
 **To test successfully set up visit: http://localhost:8000**
 
-### Production environment
+### ☁️ Production environment
 
 Set up with Gunicorn, psycopg2 and Docker deploy. Use the [Dockerfile](Dockerfile) file.
 
@@ -142,12 +155,17 @@ To use [render](https://render.com/) connect your GitHub repository and allow au
 
 In server needs to configure the follow environment variables (minimal ones):
 
-- SQLALCHEMY_DATABASE_URI
 - ENV
+- SQLALCHEMY_DATABASE_URI
+- CACHE_REDIS_URL
 
 Complete environment variables list are as example on [_.env](_.env) file, they are used on [settings](api/configurations/settings.py) app.
 
 **Keep an eye on PORT value** It is required to deploy the app, Heroku and Render assign it automatically.
+
+On Render you could create Postgres Database and Redis instance for free.
+
+Have a nice coding, Pythonizate!
 
 ---
 ⌨️ with ❤️ by [Gabriella Martínez](https://github.com/martinezga) 😊
