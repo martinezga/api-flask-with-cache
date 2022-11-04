@@ -1,0 +1,897 @@
+{
+	"info": {
+		"_postman_id": "ffd41d71-3a35-4a43-a4a9-3aab1f07a3eb",
+		"name": "api-users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10616243"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get all first page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						},
+						"description": "By default, response it is paginated with 10 objects.\n\nPagination query parameters:\n\n*   page: Optional. Number for pagination across multiple pages of results\n*   per_page: Optional. Number of objects to be returned, between 1 and 100.\n    \n\nFiltration query parameters:\n\n*   name: Optional. User's name. Filter exact coincidence. Case sensitive.\n*   lastname: Optional. User's last name. Filter exact coincidence. Case sensitive.\n*   email: Optional. User's email address. Filter exact coincidence. Case sensitive.\n    \n\nPagination and filtration could be used in same request."
+					},
+					"response": [
+						{
+							"name": "get all first page",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:40:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1461"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"pattybeck3880@email.com\",\n            \"id\": 298598,\n            \"lastname\": \"Beck\",\n            \"name\": \"Patty\"\n        },\n        {\n            \"email\": \"margaretfrancis2390@email.com\",\n            \"id\": 298600,\n            \"lastname\": \"Francis\",\n            \"name\": \"Margaret\"\n        },\n        {\n            \"email\": \"crystalmarsh8398@email.com\",\n            \"id\": 298603,\n            \"lastname\": \"Marsh\",\n            \"name\": \"Crystal\"\n        },\n        {\n            \"email\": \"jaredbowen6576@email.com\",\n            \"id\": 298606,\n            \"lastname\": \"Bowen\",\n            \"name\": \"Jared\"\n        },\n        {\n            \"email\": \"kayleeyork7948@email.com\",\n            \"id\": 298609,\n            \"lastname\": \"York\",\n            \"name\": \"Kaylee\"\n        },\n        {\n            \"email\": \"ambernorman1928@email.com\",\n            \"id\": 298610,\n            \"lastname\": \"Norman\",\n            \"name\": \"Amber\"\n        },\n        {\n            \"email\": \"ashleenavarro5335@email.com\",\n            \"id\": 298613,\n            \"lastname\": \"Navarro\",\n            \"name\": \"Ashlee\"\n        },\n        {\n            \"email\": \"jacksonsolis9671@email.com\",\n            \"id\": 298615,\n            \"lastname\": \"Solis\",\n            \"name\": \"Jackson\"\n        },\n        {\n            \"email\": \"albertcardenas1801@email.com\",\n            \"id\": 298618,\n            \"lastname\": \"Cardenas\",\n            \"name\": \"Albert\"\n        },\n        {\n            \"email\": \"kirkhartman1146@email.com\",\n            \"id\": 298622,\n            \"lastname\": \"Hartman\",\n            \"name\": \"Kirk\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 10,\n        \"has_more\": true,\n        \"last_page\": 115269,\n        \"next_page\": 2,\n        \"total_items\": 1152687\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get all by page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/?page=2&per_page=3/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "per_page",
+									"value": "3/"
+								}
+							]
+						},
+						"description": "Pagination query parameters:\n\n*   page: Optional. Number for pagination across multiple pages of results\n*   per_page: Optional. Number of objects to be returned, between 1 and 100.\n    \n\nTo make a request with last_page must have per_page (if used)"
+					},
+					"response": [
+						{
+							"name": "get all by page",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/?page=367698&per_page=3/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "367698"
+										},
+										{
+											"key": "per_page",
+											"value": "3/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:47:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "567"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"glennvillanueva1256@email.com\",\n            \"id\": 232775,\n            \"lastname\": \"Villanueva\",\n            \"name\": \"Glenn\"\n        },\n        {\n            \"email\": \"latoyadavila928@email.com\",\n            \"id\": 232777,\n            \"lastname\": \"Davila\",\n            \"name\": \"Latoya\"\n        },\n        {\n            \"email\": \"davidwood5068@email.com\",\n            \"id\": 232779,\n            \"lastname\": \"Wood\",\n            \"name\": \"David\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 3,\n        \"has_more\": true,\n        \"last_page\": 389629,\n        \"next_page\": 367699,\n        \"total_items\": 1168885\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get user by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/?name=Sue/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Sue/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/?name=Sue/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Sue/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:48:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1406"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"suecarrillo1693@email.com\",\n            \"id\": 233995,\n            \"lastname\": \"Carrillo\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suefuller8895@email.com\",\n            \"id\": 234436,\n            \"lastname\": \"Fuller\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suefernandez7558@email.com\",\n            \"id\": 234696,\n            \"lastname\": \"Fernandez\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suekramer3578@email.com\",\n            \"id\": 235223,\n            \"lastname\": \"Kramer\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suepruitt8365@email.com\",\n            \"id\": 235187,\n            \"lastname\": \"Pruitt\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suegarner919@email.com\",\n            \"id\": 237110,\n            \"lastname\": \"Garner\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"sueprince1215@email.com\",\n            \"id\": 238952,\n            \"lastname\": \"Prince\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suecarson6522@email.com\",\n            \"id\": 240308,\n            \"lastname\": \"Carson\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"sueyork3128@email.com\",\n            \"id\": 240318,\n            \"lastname\": \"York\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suebrooks7913@email.com\",\n            \"id\": 240289,\n            \"lastname\": \"Brooks\",\n            \"name\": \"Sue\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 10,\n        \"has_more\": true,\n        \"last_page\": 165,\n        \"next_page\": 2,\n        \"total_items\": 1647\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get user by name and email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/?name=Sue&email=sueortega3058@email.com/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Sue"
+								},
+								{
+									"key": "email",
+									"value": "sueortega3058@email.com/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user by name and email",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/?name=Sue&email=sueortega3058@email.com/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Sue"
+										},
+										{
+											"key": "email",
+											"value": "sueortega3058@email.com/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:48:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"sueortega3058@email.com\",\n            \"id\": 1044394,\n            \"lastname\": \"Ortega\",\n            \"name\": \"Sue\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 1,\n        \"has_more\": false,\n        \"last_page\": 1,\n        \"next_page\": null,\n        \"total_items\": 1\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get user by name and lastname",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/?name=Eduardo&lastname=Todd/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Eduardo"
+								},
+								{
+									"key": "lastname",
+									"value": "Todd/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user by name and lastname",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/?name=Eduardo&lastname=Todd/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Eduardo"
+										},
+										{
+											"key": "lastname",
+											"value": "Todd/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:48:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "418"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"eduardotodd3999@email.com\",\n            \"id\": 990693,\n            \"lastname\": \"Todd\",\n            \"name\": \"Eduardo\"\n        },\n        {\n            \"email\": \"eduardotodd9557@email.com\",\n            \"id\": 7,\n            \"lastname\": \"Todd\",\n            \"name\": \"Eduardo\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 2,\n        \"has_more\": false,\n        \"last_page\": 1,\n        \"next_page\": null,\n        \"total_items\": 2\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get user by lastname and email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/?lastname=Cantrell&email=nataliecantrell499@email.com/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "lastname",
+									"value": "Cantrell"
+								},
+								{
+									"key": "email",
+									"value": "nataliecantrell499@email.com/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user by lastname and email",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/?lastname=Cantrell&email=nataliecantrell499@email.com/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "lastname",
+											"value": "Cantrell"
+										},
+										{
+											"key": "email",
+											"value": "nataliecantrell499@email.com/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:49:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "301"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"nataliecantrell499@email.com\",\n            \"id\": 1215,\n            \"lastname\": \"Cantrell\",\n            \"name\": \"Natalie\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 1,\n        \"has_more\": false,\n        \"last_page\": 1,\n        \"next_page\": null,\n        \"total_items\": 1\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get user by name w/pages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/auth/users/?name=Sue&page=5/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Sue"
+								},
+								{
+									"key": "page",
+									"value": "5/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user by name w/pages",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/auth/users/?name=Sue&page=5/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Sue"
+										},
+										{
+											"key": "page",
+											"value": "5/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 14:51:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1404"
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=500"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"email\": \"suefuller8895@email.com\",\n            \"id\": 234436,\n            \"lastname\": \"Fuller\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suefernandez7558@email.com\",\n            \"id\": 234696,\n            \"lastname\": \"Fernandez\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suekramer3578@email.com\",\n            \"id\": 235223,\n            \"lastname\": \"Kramer\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suepruitt8365@email.com\",\n            \"id\": 235187,\n            \"lastname\": \"Pruitt\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suegarner919@email.com\",\n            \"id\": 237110,\n            \"lastname\": \"Garner\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"sueprince1215@email.com\",\n            \"id\": 238952,\n            \"lastname\": \"Prince\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suecarson6522@email.com\",\n            \"id\": 240308,\n            \"lastname\": \"Carson\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"sueyork3128@email.com\",\n            \"id\": 240318,\n            \"lastname\": \"York\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suebrooks7913@email.com\",\n            \"id\": 240289,\n            \"lastname\": \"Brooks\",\n            \"name\": \"Sue\"\n        },\n        {\n            \"email\": \"suerichard3830@email.com\",\n            \"id\": 241308,\n            \"lastname\": \"Richard\",\n            \"name\": \"Sue\"\n        }\n    ],\n    \"detail\": {\n        \"count_items\": 10,\n        \"has_more\": true,\n        \"last_page\": 165,\n        \"next_page\": 6,\n        \"total_items\": 1647\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"email\": \"mariadoe4444@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/auth/users/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						},
+						"description": "Create user."
+					},
+					"response": [
+						{
+							"name": "created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"email\": \"johndoe4444@email.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}/auth/users/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 13:47:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Created\",\n    \"status_code\": 200\n}"
+						},
+						{
+							"name": "bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"email\": \"johndoe4444@email.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base}}/auth/users/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"auth",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 13:50:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": {\n        \"error\": \"Email duplicated\"\n    },\n    \"status_code\": 400\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dummy users",
+			"item": [
+				{
+					"name": "create ONE dummy user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/dummy/users/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"dummy",
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create ONE dummy user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/dummy/users/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"dummy",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 13:37:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": {\n        \"created\": 1,\n        \"total registered\": 1021943\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "create MANY dummy user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/dummy/users/?qty=20/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"dummy",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "qty",
+									"value": "20/"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create MANY dummy user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_base}}/dummy/users/?qty=20/",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"dummy",
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "qty",
+											"value": "20/"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.7"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Nov 2022 13:38:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": {\n        \"created\": 20,\n        \"total registered\": 1022807\n    },\n    \"status_code\": 200\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
