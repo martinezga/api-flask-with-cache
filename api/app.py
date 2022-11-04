@@ -3,7 +3,7 @@ from flask import Flask
 from api.configurations import settings
 from api.configurations.database import db, cache
 from api.routes.user_bp import user_bp
-from api.routes.data_populate_bp import data_populate_bp
+from api.routes.user_dummy_bp import user_dummy_bp
 
 
 def create_app():
@@ -20,7 +20,7 @@ def create_app():
     cache.init_app(app)
     # register blueprints
     app.register_blueprint(user_bp)
-    app.register_blueprint(data_populate_bp)
+    app.register_blueprint(user_dummy_bp)
 
     return app
 

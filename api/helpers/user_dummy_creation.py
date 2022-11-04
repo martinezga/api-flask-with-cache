@@ -6,8 +6,8 @@ from sqlalchemy.exc import IntegrityError
 from api.models.user_model import UserModel
 
 
-def populate_data(db: SQLAlchemy, records_qty=0):
-    """Dynamic Data population"""
+def create_dummy_user(db: SQLAlchemy, records_qty=0):
+    """Dynamic dummy user population"""
     created_users = 0
     fake = Faker(use_weighting=False)
 
