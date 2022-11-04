@@ -58,7 +58,7 @@ def list_all():
         message['status_code'] = 404
 
     response = make_response(message, message['status_code'])
-    response.headers['X-custom-header'] = 'custom header'
+    response.headers['cache-control'] = f'max-age={ApiConfig.CACHE_DEFAULT_TIMEOUT}'
 
     return response
 
