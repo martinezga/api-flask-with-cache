@@ -16,7 +16,7 @@ flask-caching = "*"
 psycopg2-binary = "*"
 
 [scripts]
-server          = "python app.py"
+server          = "python -m api.app"
 
 [requires]
 python_version = "3.8"
