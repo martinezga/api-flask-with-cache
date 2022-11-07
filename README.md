@@ -8,6 +8,9 @@ Develop an API endpoint to get a list of users.
 
 https://api-users.onrender.com
 
+**Note**: Web Services on the free plan are automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, **Render** spins it up again so it can process the request.
+This can cause a _response delay of up to 30 seconds_ for the first request that comes in after a period of inactivity.
+
 ---
 
 ### 🔧 Technologies used
@@ -64,13 +67,14 @@ By default, response it is paginated with 10 objects.
 **To make a request with last_page field (obtained in response) must have per_page (if used)**
 
 Examples:
-- /auth/users/?page=5&per_page=3/
-- /auth/users/?name=Sue/
-- /auth/users/?name=Sue&email=sueortega3058@email.com/
-- /auth/users/?name=Eduardo&lastname=Todd/
-- /auth/users/?lastname=Cantrell&email=nataliecantrell499@email.com/
-- /auth/users/?name=Sue&page=5/
-
+ ```
+    /auth/users/?page=5&per_page=3/
+    /auth/users/?name=Sue/
+    /auth/users/?name=Sue&email=sueortega3058@email.com/
+    /auth/users/?name=Eduardo&lastname=Todd/
+    /auth/users/?lastname=Cantrell&email=nataliecantrell499@email.com/
+    /auth/users/?name=Sue&page=5/
+ ```
 ### Endpoint: /auth/users/
 #### HTTP Method: POST
 
